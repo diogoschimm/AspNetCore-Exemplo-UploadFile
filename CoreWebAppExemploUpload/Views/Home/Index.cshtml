@@ -1,0 +1,24 @@
+﻿@model CoreWebAppExemploUpload.Models.Cliente
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form enctype="multipart/form-data" class="form" asp-controller="Home" asp-action="index">
+
+    <label>ID Cliente</label>
+    <input asp-for="ClienteId" />
+
+    <label>Nome do Cliente</label>
+    <input asp-for="Nome" />
+
+    <label>Foto do Cliente</label>
+    <input asp-for="Foto" type="file" />
+
+    <br />
+    <br />
+
+    <input type="submit" />
+</form>

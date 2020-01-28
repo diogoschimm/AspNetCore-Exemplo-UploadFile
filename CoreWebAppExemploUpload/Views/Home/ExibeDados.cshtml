@@ -1,0 +1,22 @@
+﻿@model CoreWebAppExemploUpload.Models.Cliente
+
+@{
+    ViewData["Title"] = "ExibeDados";
+}
+
+@{
+    var imgSrc = String.Format("data:image/gif;base64,{0}", ViewBag.Imagem);
+}
+
+<h1>ExibeDados</h1>
+
+ID: @Model.ClienteId
+<br />
+Nome: @Model.Nome
+<br />
+
+<br />
+Image:
+<img src="@imgSrc" />
+
+
