@@ -56,7 +56,9 @@ Colocar o enctype do form para "multipart/form-data", colocar o controller e act
 
 ## Criar o Controller para receber os dados da View 
 
-Observação: O sistema converte a Foto para Base64 e envia para a View ExibeDados atraves de ViewBag
+Observação: O sistema converte a Foto para Base64 e envia para a View ExibeDados atraves de ViewBag.
+Se for armazenar armazenar no banco de dados em um varbinary(max) utilizar o metodo ConverterToByteArray.
+
 
 ```c#
     public class HomeController : Controller
@@ -81,6 +83,15 @@ Observação: O sistema converte a Foto para Base64 e envia para a View ExibeDad
             {
                 file.CopyTo(ms);
                 return Convert.ToBase64String(ms.ToArray());
+            }
+        }
+        
+        private byte[] ConverterToByteArray(Microsoft.AspNetCore.Http.IFormFile file)
+        {
+            using (var ms = new System.IO.MemoryStream())
+            {
+                file.CopyTo(ms);
+                return ms.ToArray();
             }
         }
     }
